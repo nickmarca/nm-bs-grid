@@ -18,6 +18,10 @@ var container = Css.style(/* :: */[
 
 var Styles = /* module */[/* container */container];
 
+var i = window.matchMedia("any query");
+
+console.log(i.matches);
+
 function Component1(Props) {
   return React.createElement("div", {
               className: container
@@ -27,5 +31,6 @@ function Component1(Props) {
 var make = Component1;
 
 exports.Styles = Styles;
+exports.i = i;
 exports.make = make;
 /* container Not a pure module */

@@ -8,10 +8,10 @@ function useVW(param) {
   var match = React.useState((function () {
           return window.innerWidth;
         }));
-  var setVw = match[1];
+  var setVW = match[1];
   React.useEffect((function () {
           var listener = function (param) {
-            return Curry._1(setVw, (function (param) {
+            return Curry._1(setVW, (function (param) {
                           return window.innerWidth;
                         }));
           };

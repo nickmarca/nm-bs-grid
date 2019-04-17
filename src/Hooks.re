@@ -3,10 +3,10 @@
 [@bs.val] [@bs.scope "window"] external removeEventListener: (string, unit => unit) => unit = "removeEventListener";
 
 let useVW = () => {
-  let (vw, setVw) = React.useState(() => innerWidth);
+  let (vw, setVW) = React.useState(() => innerWidth);
 
   React.useEffect0(() => {
-    let listener = () => setVw(_ => innerWidth);
+    let listener = () => setVW(_ => innerWidth);
     addEventListener("resize", listener);
     Some(() => removeEventListener("resize", listener));
   });
