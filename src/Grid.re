@@ -1,4 +1,6 @@
 [@react.component]
 let make = () => {
-  <div> {ReasonReact.string("Grid")} </div>;
+  let vw = Hooks.useVW();
+
+  <div> {ReasonReact.string(string_of_int(vw))} </div>;
 };

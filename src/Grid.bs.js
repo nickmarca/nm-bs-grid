@@ -2,9 +2,11 @@
 'use strict';
 
 var React = require("react");
+var Hooks$ReactHooksTemplate = require("./Hooks.bs.js");
 
 function Grid(Props) {
-  return React.createElement("div", undefined, "Grid");
+  var vw = Hooks$ReactHooksTemplate.useVW(/* () */0);
+  return React.createElement("div", undefined, String(vw));
 }
 
 var make = Grid;
