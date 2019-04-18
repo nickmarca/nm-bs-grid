@@ -13,3 +13,19 @@ let useVW = () => {
 
   vw;
 };
+
+type mediaQueryList = {. "matches": bool};
+[@bs.send] external matchMedia: (Dom.window, string) => mediaQueryList = "matchMedia";
+[@bs.val] external window: Dom.window = "window";
+
+let useMedia = (query: string) => {
+  let (matches, setMatches) = React.useState(() => matchMedia(window, query)##matches);
+
+  React.useEffect(() => {
+    let listener = () => setMatches(_ => matchMedia(window, query)##matches);
+    addEventListener("resize", listener);
+    Some(() => removeEventListener("resize", listener));
+  });
+
+  matches;
+};

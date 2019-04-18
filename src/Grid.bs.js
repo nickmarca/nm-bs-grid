@@ -2,11 +2,13 @@
 'use strict';
 
 var React = require("react");
+var Pervasives = require("bs-platform/lib/js/pervasives.js");
 var Hooks$ReactHooksTemplate = require("./Hooks.bs.js");
 
 function Grid(Props) {
   var vw = Hooks$ReactHooksTemplate.useVW(/* () */0);
-  return React.createElement("div", undefined, String(vw));
+  var matches = Hooks$ReactHooksTemplate.useMedia("(min-width: 700px)");
+  return React.createElement("div", undefined, String(vw), React.createElement("br", undefined), React.createElement("span", undefined, Pervasives.string_of_bool(matches)));
 }
 
 var make = Grid;

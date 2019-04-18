@@ -24,5 +24,26 @@ function useVW(param) {
   return match[0];
 }
 
+function useMedia(query) {
+  var match = React.useState((function () {
+          return window.matchMedia(query).matches;
+        }));
+  var setMatches = match[1];
+  React.useEffect((function () {
+          var listener = function (param) {
+            return Curry._1(setMatches, (function (param) {
+                          return window.matchMedia(query).matches;
+                        }));
+          };
+          window.addEventListener("resize", listener);
+          return (function (param) {
+                    window.removeEventListener("resize", listener);
+                    return /* () */0;
+                  });
+        }));
+  return match[0];
+}
+
 exports.useVW = useVW;
+exports.useMedia = useMedia;
 /* react Not a pure module */
