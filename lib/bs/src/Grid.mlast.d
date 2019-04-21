@@ -1,3 +1,3 @@
 src/Grid-ReactHooksTemplate.cmj :
-src/Hooks-ReactHooksTemplate.cmj
-src/Hooks-ReactHooksTemplate.cmi
+src/GridRow-ReactHooksTemplate.cmj
+src/GridRow-ReactHooksTemplate.cmi

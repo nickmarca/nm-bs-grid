@@ -1,7 +1,7 @@
 bs_package_flags = -bs-package-name react-hooks-template -bs-package-map ReactHooksTemplate
 src_root_dir = /Users/nicholas/code/nm-bs-grid
-bsc = /Users/nicholas/code/nm-bs-grid/node_modules/bs-platform/lib/bsc.exe
-bsdep = /Users/nicholas/code/nm-bs-grid/node_modules/bs-platform/lib/bsb_helper.exe
+bsc = /Users/nicholas/.nvm/versions/node/v10.15.0/lib/node_modules/bs-platform/lib/bsc.exe
+bsdep = /Users/nicholas/.nvm/versions/node/v10.15.0/lib/node_modules/bs-platform/lib/bsb_helper.exe
 warnings = -w -30-40+6+7+27+32..39+44+45+101
 bsc_flags = -bs-suffix -nostdlib -I '/Users/nicholas/code/nm-bs-grid/node_modules/bs-platform/lib/ocaml' -color always
 ppx_flags = 
@@ -9,8 +9,8 @@ bs_package_includes = -I /Users/nicholas/code/nm-bs-grid/node_modules/reason-rea
 bs_package_dev_includes = 
 namespace = -ns ReactHooksTemplate
 bsb_dir_group = 0
-refmt = /Users/nicholas/code/nm-bs-grid/node_modules/bs-platform/lib/refmt.exe
-reason_react_jsx = -ppx '/Users/nicholas/code/nm-bs-grid/node_modules/bs-platform/lib/reactjs_jsx_ppx_3.exe'
+refmt = /Users/nicholas/.nvm/versions/node/v10.15.0/lib/node_modules/bs-platform/lib/refmt.exe
+reason_react_jsx = -ppx '/Users/nicholas/.nvm/versions/node/v10.15.0/lib/node_modules/bs-platform/lib/reactjs_jsx_ppx_3.exe'
 refmt_flags = --print binary
 bsc_lib_includes = -I . -I src
 rule build_ast_and_module_sets_from_re
@@ -40,6 +40,21 @@ build src/Index.mlast.d : build_deps src/Index.mlast
 build src/Index-ReactHooksTemplate.cmj |  $src_root_dir/src/Index.bs.js src/Index-ReactHooksTemplate.cmi : build_cmj_cmi src/Index.mlast
   bsc_flags = $bsc_flags -bs-re-out -bs-super-errors
   bs_package_flags = $bs_package_flags  -bs-package-output commonjs:src
+build src/GridRow.mlast : build_ast_and_module_sets_from_re $src_root_dir/src/GridRow.re
+build src/GridRow.mlast.d : build_deps src/GridRow.mlast
+build src/GridRow-ReactHooksTemplate.cmj |  $src_root_dir/src/GridRow.bs.js src/GridRow-ReactHooksTemplate.cmi : build_cmj_cmi src/GridRow.mlast
+  bsc_flags = $bsc_flags -bs-re-out -bs-super-errors
+  bs_package_flags = $bs_package_flags  -bs-package-output commonjs:src
+build src/GridItem.mlast : build_ast_and_module_sets_from_re $src_root_dir/src/GridItem.re
+build src/GridItem.mlast.d : build_deps src/GridItem.mlast
+build src/GridItem-ReactHooksTemplate.cmj |  $src_root_dir/src/GridItem.bs.js src/GridItem-ReactHooksTemplate.cmi : build_cmj_cmi src/GridItem.mlast
+  bsc_flags = $bsc_flags -bs-re-out -bs-super-errors
+  bs_package_flags = $bs_package_flags  -bs-package-output commonjs:src
+build src/GridTasks.mlast : build_ast_and_module_sets_from_re $src_root_dir/src/GridTasks.re
+build src/GridTasks.mlast.d : build_deps src/GridTasks.mlast
+build src/GridTasks-ReactHooksTemplate.cmj |  $src_root_dir/src/GridTasks.bs.js src/GridTasks-ReactHooksTemplate.cmi : build_cmj_cmi src/GridTasks.mlast
+  bsc_flags = $bsc_flags -bs-re-out -bs-super-errors
+  bs_package_flags = $bs_package_flags  -bs-package-output commonjs:src
 build src/Component1.mlast : build_ast_and_module_sets_from_re $src_root_dir/src/Component1.re
 build src/Component1.mlast.d : build_deps src/Component1.mlast
 build src/Component1-ReactHooksTemplate.cmj |  $src_root_dir/src/Component1.bs.js src/Component1-ReactHooksTemplate.cmi : build_cmj_cmi src/Component1.mlast
@@ -50,4 +65,4 @@ rule build_package
   restat = 1
   description = [34mBuilding[39m [2m${out}[22m
 build ReactHooksTemplate.cmi : build_package ReactHooksTemplate.mlmap
-build build.ninja : phony  ||  ReactHooksTemplate.cmi src/Component1.mlast.d src/Index.mlast.d src/Hooks.mlast.d src/Grid.mlast.d
+build build.ninja : phony  ||  ReactHooksTemplate.cmi src/Component1.mlast.d src/GridTasks.mlast.d src/GridItem.mlast.d src/GridRow.mlast.d src/Index.mlast.d src/Hooks.mlast.d src/Grid.mlast.d

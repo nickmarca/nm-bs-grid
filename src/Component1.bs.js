@@ -21,7 +21,9 @@ var Styles = /* module */[/* container */container];
 function Component1(Props) {
   return React.createElement("div", {
               className: container
-            }, React.createElement(Grid$ReactHooksTemplate.make, { }));
+            }, React.createElement(Grid$ReactHooksTemplate.make, {
+                  itemWidth: 200
+                }));
 }
 
 var make = Component1;

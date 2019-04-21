@@ -1,11 +1,10 @@
-[@react.component]
-let make = () => {
-  let vw = Hooks.useVW();
-  let matches = Hooks.useMedia("(min-width: 700px)");
+module Styles = {
+  open Css;
 
-  <div>
-    {ReasonReact.string(string_of_int(vw))}
-    <br />
-    <span> {ReasonReact.string(string_of_bool(matches))} </span>
-  </div>;
+  let container = style([display(flexBox), flexDirection(column)]);
+};
+
+[@react.component]
+let make = (~itemWidth: int) => {
+  <div className=Styles.container> <GridRow itemWidth /> </div>;
 };
