@@ -7,3 +7,5 @@ src/GridRow-ReactHooksTemplate.cmj
 src/GridRow-ReactHooksTemplate.cmi
 src/GridTasks-ReactHooksTemplate.cmj
 src/GridTasks-ReactHooksTemplate.cmi
+src/Hooks-ReactHooksTemplate.cmj
+src/Hooks-ReactHooksTemplate.cmi

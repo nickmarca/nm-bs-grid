@@ -5,6 +5,7 @@ var Css = require("bs-css/src/Css.js");
 var $$Array = require("bs-platform/lib/js/array.js");
 var React = require("react");
 var Grid$ReactHooksTemplate = require("./Grid.bs.js");
+var Hooks$ReactHooksTemplate = require("./Hooks.bs.js");
 var GridRow$ReactHooksTemplate = require("./GridRow.bs.js");
 var GridItem$ReactHooksTemplate = require("./GridItem.bs.js");
 var GridTasks$ReactHooksTemplate = require("./GridTasks.bs.js");
@@ -66,17 +67,21 @@ function renderItems(width) {
 }
 
 function Component1(Props) {
+  var vw = Hooks$ReactHooksTemplate.useVW(/* () */0);
   return React.createElement("div", {
               className: container
             }, React.createElement(Grid$ReactHooksTemplate.make, {
-                  itemWidth: 200,
+                  itemWidth: vw / 3 | 0,
                   render: renderItems
                 }));
 }
 
+var maxRowItems = 3;
+
 var make = Component1;
 
 exports.Styles = Styles;
+exports.maxRowItems = maxRowItems;
 exports.renderItems = renderItems;
 exports.make = make;
 /* container Not a pure module */

@@ -5,6 +5,8 @@ module Styles = {
     style([height(vh(100.)), display(flexBox), background(hex("fff"))]);
 };
 
+let maxRowItems = 3;
+
 let renderItems = width => {
   let items = [
     <GridItem width key="1" />,
@@ -14,7 +16,7 @@ let renderItems = width => {
     <GridItem width key="5" />,
   ];
 
-  let rows = GridTasks.splitByRow(~items, ~maxRowItems=3);
+  let rows = GridTasks.splitByRow(~items, ~maxRowItems);
   let rows =
     Array.mapi(
       (i, row) =>
@@ -27,7 +29,10 @@ let renderItems = width => {
 };
 
 [@react.component]
-let make = () =>
+let make = () => {
+  let vw = Hooks.useVW();
+
   <div className=Styles.container>
-    <Grid itemWidth=200 render=renderItems />
+    <Grid itemWidth={vw / maxRowItems} render=renderItems />
   </div>;
+};
