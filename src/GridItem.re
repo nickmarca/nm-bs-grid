@@ -2,7 +2,14 @@ module Styles = {
   open Css;
 
   let container = w =>
-    style([width(px(w)), height(pxFloat(1.2 *. float_of_int(w)))]);
+    style([
+      display(flexBox),
+      alignItems(center),
+      justifyContent(center),
+      width(px(w)),
+      border(px(1), solid, hex("000")),
+      height(pxFloat(1.2 *. float_of_int(w))),
+    ]);
 };
 
 [@react.component]

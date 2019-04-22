@@ -6,10 +6,22 @@ var React = require("react");
 
 function container(w) {
   return Css.style(/* :: */[
-              Css.width(Css.px(w)),
+              Css.display(Css.flexBox),
               /* :: */[
-                Css.height(Css.pxFloat(1.2 * w)),
-                /* [] */0
+                Css.alignItems(Css.center),
+                /* :: */[
+                  Css.justifyContent(Css.center),
+                  /* :: */[
+                    Css.width(Css.px(w)),
+                    /* :: */[
+                      Css.border(Css.px(1), Css.solid, Css.hex("000")),
+                      /* :: */[
+                        Css.height(Css.pxFloat(1.2 * w)),
+                        /* [] */0
+                      ]
+                    ]
+                  ]
+                ]
               ]
             ]);
 }

@@ -2,8 +2,8 @@
 'use strict';
 
 var Css = require("bs-css/src/Css.js");
+var Curry = require("bs-platform/lib/js/curry.js");
 var React = require("react");
-var GridRow$ReactHooksTemplate = require("./GridRow.bs.js");
 
 var container = Css.style(/* :: */[
       Css.display(Css.flexBox),
@@ -17,11 +17,10 @@ var Styles = /* module */[/* container */container];
 
 function Grid(Props) {
   var itemWidth = Props.itemWidth;
+  var render = Props.render;
   return React.createElement("div", {
               className: container
-            }, React.createElement(GridRow$ReactHooksTemplate.make, {
-                  itemWidth: itemWidth
-                }));
+            }, Curry._1(render, itemWidth));
 }
 
 var make = Grid;

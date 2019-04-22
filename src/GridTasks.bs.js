@@ -2,6 +2,7 @@
 'use strict';
 
 var List = require("bs-platform/lib/js/list.js");
+var $$Array = require("bs-platform/lib/js/array.js");
 
 function splitByRow(items, maxRowItems) {
   var foldFn = function (acc, item) {
@@ -31,10 +32,11 @@ function splitByRow(items, maxRowItems) {
             ];
     }
   };
-  return List.fold_left(foldFn, /* :: */[
-              /* [] */0,
-              /* [] */0
-            ], items);
+  var l = List.fold_left(foldFn, /* :: */[
+        /* [] */0,
+        /* [] */0
+      ], items);
+  return $$Array.of_list(List.map($$Array.of_list, l));
 }
 
 exports.splitByRow = splitByRow;

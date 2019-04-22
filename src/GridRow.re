@@ -5,13 +5,6 @@ module Styles = {
 };
 
 [@react.component]
-let make = (~itemWidth: int) => {
-  <div className=Styles.container>
-    <GridItem width=itemWidth />
-    <GridItem width=itemWidth />
-    <GridItem width=itemWidth />
-    <GridItem width=itemWidth />
-    <GridItem width=itemWidth />
-    <GridItem width=itemWidth />
-  </div>;
+let make = (~children) => {
+  <div className=Styles.container> children </div>;
 };

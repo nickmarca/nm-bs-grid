@@ -3,7 +3,6 @@
 
 var Css = require("bs-css/src/Css.js");
 var React = require("react");
-var GridItem$ReactHooksTemplate = require("./GridItem.bs.js");
 
 var container = Css.style(/* :: */[
       Css.display(Css.flexBox),
@@ -16,22 +15,10 @@ var container = Css.style(/* :: */[
 var Styles = /* module */[/* container */container];
 
 function GridRow(Props) {
-  var itemWidth = Props.itemWidth;
+  var children = Props.children;
   return React.createElement("div", {
               className: container
-            }, React.createElement(GridItem$ReactHooksTemplate.make, {
-                  width: itemWidth
-                }), React.createElement(GridItem$ReactHooksTemplate.make, {
-                  width: itemWidth
-                }), React.createElement(GridItem$ReactHooksTemplate.make, {
-                  width: itemWidth
-                }), React.createElement(GridItem$ReactHooksTemplate.make, {
-                  width: itemWidth
-                }), React.createElement(GridItem$ReactHooksTemplate.make, {
-                  width: itemWidth
-                }), React.createElement(GridItem$ReactHooksTemplate.make, {
-                  width: itemWidth
-                }));
+            }, children);
 }
 
 var make = GridRow;

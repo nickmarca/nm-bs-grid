@@ -2,8 +2,12 @@
 'use strict';
 
 var Css = require("bs-css/src/Css.js");
+var $$Array = require("bs-platform/lib/js/array.js");
 var React = require("react");
 var Grid$ReactHooksTemplate = require("./Grid.bs.js");
+var GridRow$ReactHooksTemplate = require("./GridRow.bs.js");
+var GridItem$ReactHooksTemplate = require("./GridItem.bs.js");
+var GridTasks$ReactHooksTemplate = require("./GridTasks.bs.js");
 
 var container = Css.style(/* :: */[
       Css.height(Css.vh(100)),
@@ -18,16 +22,61 @@ var container = Css.style(/* :: */[
 
 var Styles = /* module */[/* container */container];
 
+function renderItems(width) {
+  var items_000 = React.createElement(GridItem$ReactHooksTemplate.make, {
+        width: width,
+        key: "1"
+      });
+  var items_001 = /* :: */[
+    React.createElement(GridItem$ReactHooksTemplate.make, {
+          width: width,
+          key: "2"
+        }),
+    /* :: */[
+      React.createElement(GridItem$ReactHooksTemplate.make, {
+            width: width,
+            key: "3"
+          }),
+      /* :: */[
+        React.createElement(GridItem$ReactHooksTemplate.make, {
+              width: width,
+              key: "4"
+            }),
+        /* :: */[
+          React.createElement(GridItem$ReactHooksTemplate.make, {
+                width: width,
+                key: "5"
+              }),
+          /* [] */0
+        ]
+      ]
+    ]
+  ];
+  var items = /* :: */[
+    items_000,
+    items_001
+  ];
+  var rows = GridTasks$ReactHooksTemplate.splitByRow(items, 3);
+  return $$Array.mapi((function (i, row) {
+                return React.createElement(GridRow$ReactHooksTemplate.make, {
+                            children: row,
+                            key: String(i) + "_row"
+                          });
+              }), rows);
+}
+
 function Component1(Props) {
   return React.createElement("div", {
               className: container
             }, React.createElement(Grid$ReactHooksTemplate.make, {
-                  itemWidth: 200
+                  itemWidth: 200,
+                  render: renderItems
                 }));
 }
 
 var make = Component1;
 
 exports.Styles = Styles;
+exports.renderItems = renderItems;
 exports.make = make;
 /* container Not a pure module */

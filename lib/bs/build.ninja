@@ -1,7 +1,7 @@
 bs_package_flags = -bs-package-name react-hooks-template -bs-package-map ReactHooksTemplate
 src_root_dir = /Users/nicholas/code/nm-bs-grid
-bsc = /Users/nicholas/.nvm/versions/node/v10.15.0/lib/node_modules/bs-platform/lib/bsc.exe
-bsdep = /Users/nicholas/.nvm/versions/node/v10.15.0/lib/node_modules/bs-platform/lib/bsb_helper.exe
+bsc = /Users/nicholas/code/nm-bs-grid/node_modules/bs-platform/lib/bsc.exe
+bsdep = /Users/nicholas/code/nm-bs-grid/node_modules/bs-platform/lib/bsb_helper.exe
 warnings = -w -30-40+6+7+27+32..39+44+45+101
 bsc_flags = -bs-suffix -nostdlib -I '/Users/nicholas/code/nm-bs-grid/node_modules/bs-platform/lib/ocaml' -color always
 ppx_flags = 
@@ -9,8 +9,8 @@ bs_package_includes = -I /Users/nicholas/code/nm-bs-grid/node_modules/reason-rea
 bs_package_dev_includes = 
 namespace = -ns ReactHooksTemplate
 bsb_dir_group = 0
-refmt = /Users/nicholas/.nvm/versions/node/v10.15.0/lib/node_modules/bs-platform/lib/refmt.exe
-reason_react_jsx = -ppx '/Users/nicholas/.nvm/versions/node/v10.15.0/lib/node_modules/bs-platform/lib/reactjs_jsx_ppx_3.exe'
+refmt = /Users/nicholas/code/nm-bs-grid/node_modules/bs-platform/lib/refmt.exe
+reason_react_jsx = -ppx '/Users/nicholas/code/nm-bs-grid/node_modules/bs-platform/lib/reactjs_jsx_ppx_3.exe'
 refmt_flags = --print binary
 bsc_lib_includes = -I . -I src
 rule build_ast_and_module_sets_from_re

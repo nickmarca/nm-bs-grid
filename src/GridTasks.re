@@ -19,5 +19,6 @@ let splitByRow = (~items, ~maxRowItems) => {
     };
   };
 
-  List.fold_left(foldFn, [[]], items);
+  let l = List.fold_left(foldFn, [[]], items);
+  Array.of_list(List.map(row => Array.of_list(row), l));
 };

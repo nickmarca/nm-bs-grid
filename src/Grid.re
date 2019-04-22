@@ -5,6 +5,6 @@ module Styles = {
 };
 
 [@react.component]
-let make = (~itemWidth: int) => {
-  <div className=Styles.container> <GridRow itemWidth /> </div>;
+let make = (~itemWidth: int, ~render) => {
+  <div className=Styles.container> {render(itemWidth)} </div>;
 };
