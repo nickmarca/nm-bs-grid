@@ -36,7 +36,9 @@ function splitByRow(items, maxRowItems) {
         /* [] */0,
         /* [] */0
       ], items);
-  return $$Array.of_list(List.map($$Array.of_list, l));
+  var l$1 = List.map(List.rev, l);
+  var l$2 = List.rev(l$1);
+  return $$Array.of_list(List.map($$Array.of_list, l$2));
 }
 
 exports.splitByRow = splitByRow;

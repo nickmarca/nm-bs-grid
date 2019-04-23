@@ -40,7 +40,7 @@ function useMedia(query) {
                     window.removeEventListener("resize", listener);
                     return /* () */0;
                   });
-        }));
+        }), ([]));
   return match[0];
 }
 

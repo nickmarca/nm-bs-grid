@@ -17,7 +17,10 @@ function container(w) {
                       Css.border(Css.px(1), Css.solid, Css.hex("000")),
                       /* :: */[
                         Css.height(Css.pxFloat(1.2 * w)),
-                        /* [] */0
+                        /* :: */[
+                          Css.backgroundColor(Css.hex("ccc")),
+                          /* [] */0
+                        ]
                       ]
                     ]
                   ]
@@ -30,9 +33,10 @@ var Styles = /* module */[/* container */container];
 
 function GridItem(Props) {
   var width = Props.width;
+  var message = Props.message;
   return React.createElement("div", {
               className: container(width)
-            }, "Grid Item");
+            }, message);
 }
 
 var make = GridItem;

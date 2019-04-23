@@ -7,7 +7,7 @@ var React = require("react");
 var container = Css.style(/* :: */[
       Css.display(Css.flexBox),
       /* :: */[
-        Css.backgroundColor(Css.hex("ccc")),
+        Css.backgroundColor(Css.hex("f5f5f5")),
         /* [] */0
       ]
     ]);

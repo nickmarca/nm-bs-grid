@@ -4,6 +4,7 @@
 var Css = require("bs-css/src/Css.js");
 var $$Array = require("bs-platform/lib/js/array.js");
 var React = require("react");
+var Caml_int32 = require("bs-platform/lib/js/caml_int32.js");
 var Grid$ReactHooksTemplate = require("./Grid.bs.js");
 var Hooks$ReactHooksTemplate = require("./Hooks.bs.js");
 var GridRow$ReactHooksTemplate = require("./GridRow.bs.js");
@@ -23,29 +24,34 @@ var container = Css.style(/* :: */[
 
 var Styles = /* module */[/* container */container];
 
-function renderItems(width) {
+function renderItems(maxRowItems, width) {
   var items_000 = React.createElement(GridItem$ReactHooksTemplate.make, {
         width: width,
+        message: "Grid Item 1",
         key: "1"
       });
   var items_001 = /* :: */[
     React.createElement(GridItem$ReactHooksTemplate.make, {
           width: width,
+          message: "Grid Item 2",
           key: "2"
         }),
     /* :: */[
       React.createElement(GridItem$ReactHooksTemplate.make, {
             width: width,
+            message: "Grid Item 3",
             key: "3"
           }),
       /* :: */[
         React.createElement(GridItem$ReactHooksTemplate.make, {
               width: width,
+              message: "Grid Item 4",
               key: "4"
             }),
         /* :: */[
           React.createElement(GridItem$ReactHooksTemplate.make, {
                 width: width,
+                message: "Grid Item 5",
                 key: "5"
               }),
           /* [] */0
@@ -57,7 +63,7 @@ function renderItems(width) {
     items_000,
     items_001
   ];
-  var rows = GridTasks$ReactHooksTemplate.splitByRow(items, 3);
+  var rows = GridTasks$ReactHooksTemplate.splitByRow(items, maxRowItems);
   return $$Array.mapi((function (i, row) {
                 return React.createElement(GridRow$ReactHooksTemplate.make, {
                             children: row,
@@ -68,20 +74,28 @@ function renderItems(width) {
 
 function Component1(Props) {
   var vw = Hooks$ReactHooksTemplate.useVW(/* () */0);
+  var lg = Hooks$ReactHooksTemplate.useMedia("(min-width: 1200px)");
+  var md = Hooks$ReactHooksTemplate.useMedia("(min-width: 992px)");
+  var sm = Hooks$ReactHooksTemplate.useMedia("(min-width: 768px)");
+  var maxRowItems = lg ? 4 : (
+      md ? 3 : (
+          sm ? 2 : 1
+        )
+    );
+  console.log(maxRowItems);
   return React.createElement("div", {
               className: container
             }, React.createElement(Grid$ReactHooksTemplate.make, {
-                  itemWidth: vw / 3 | 0,
-                  render: renderItems
+                  itemWidth: Caml_int32.div(vw, maxRowItems),
+                  render: (function (param) {
+                      return renderItems(maxRowItems, param);
+                    })
                 }));
 }
-
-var maxRowItems = 3;
 
 var make = Component1;
 
 exports.Styles = Styles;
-exports.maxRowItems = maxRowItems;
 exports.renderItems = renderItems;
 exports.make = make;
 /* container Not a pure module */

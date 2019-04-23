@@ -1,6 +1,9 @@
 [@bs.val] [@bs.scope "window"] external innerWidth: int = "innerWidth";
-[@bs.val] [@bs.scope "window"] external addEventListener: (string, unit => unit) => unit = "addEventListener";
-[@bs.val] [@bs.scope "window"] external removeEventListener: (string, unit => unit) => unit = "removeEventListener";
+[@bs.val] [@bs.scope "window"]
+external addEventListener: (string, unit => unit) => unit = "addEventListener";
+[@bs.val] [@bs.scope "window"]
+external removeEventListener: (string, unit => unit) => unit =
+  "removeEventListener";
 
 let useVW = () => {
   let (vw, setVW) = React.useState(() => innerWidth);
@@ -15,13 +18,15 @@ let useVW = () => {
 };
 
 type mediaQueryList = {. "matches": bool};
-[@bs.send] external matchMedia: (Dom.window, string) => mediaQueryList = "matchMedia";
+[@bs.send]
+external matchMedia: (Dom.window, string) => mediaQueryList = "matchMedia";
 [@bs.val] external window: Dom.window = "window";
 
 let useMedia = (query: string) => {
-  let (matches, setMatches) = React.useState(() => matchMedia(window, query)##matches);
+  let (matches, setMatches) =
+    React.useState(() => matchMedia(window, query)##matches);
 
-  React.useEffect(() => {
+  React.useEffect0(() => {
     let listener = () => setMatches(_ => matchMedia(window, query)##matches);
     addEventListener("resize", listener);
     Some(() => removeEventListener("resize", listener));

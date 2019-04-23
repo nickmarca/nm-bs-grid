@@ -9,12 +9,13 @@ module Styles = {
       width(px(w)),
       border(px(1), solid, hex("000")),
       height(pxFloat(1.2 *. float_of_int(w))),
+      backgroundColor(hex("ccc")),
     ]);
 };
 
 [@react.component]
-let make = (~width: int) => {
+let make = (~width: int, ~message: string) => {
   <div className={Styles.container(width)}>
-    {ReasonReact.string("Grid Item")}
+    {ReasonReact.string(message)}
   </div>;
 };
